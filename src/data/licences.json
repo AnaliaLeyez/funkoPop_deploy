@@ -1,0 +1,29 @@
+[
+    {   
+        "collection": "starwars",
+        "licence": "Star Wars",
+        "title": "Star Wars & The Mandalorian",
+        "text": "Disfruta de una saga que sigue agregando personajes a su colección.",
+        "description": "Figura coleccionable Fuko de Grogu de la serie The Mandalorian",
+        "img": "/star-wars/baby-yoda-1.webp",
+        "cta": "ver colección"
+    },
+    {   
+        "collection": "pokemon",
+        "licence": "Pokemon",
+        "title": "Pokemon Indigo",
+        "text": "Atrapa todos los que puedas y disfruta de una colección llena de amigos.",
+        "description": "Figura coleccionable Fuko de Vulpix de la serie Pokemon",
+        "img": "/pokemon/vulpix-1.webp",
+        "cta": "ver colección"
+    },
+    {   
+        "collection": "harrypotter",
+        "licence": "Harry Potter",
+        "title": "Harry Potter",
+        "text": "Revive los recuerdos de una saga llena de magia y encanto.",
+        "description": "Figura coleccionable Fuko del Patronus de Snape en la película de Harry Potter",
+        "img": "/harry-potter/snape-patronus-1.webp",
+        "cta": "ver colección"
+    }
+]

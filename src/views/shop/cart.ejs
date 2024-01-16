@@ -1,0 +1,89 @@
+<%- include('../partials/header') %>
+
+    <main id="cart" class="container">
+        <h2 class="cart__title">CARRITO DE COMPRAS</h2>
+
+        <section class="cart__details">
+            <ul class="cart__details-list">
+                <li>DETALLE DEL PRODUCTO</li>
+                <li>CANTIDAD</li>
+                <li>TOTAL</li>
+            </ul>
+        </section>
+        <section class="cart__items">
+            <article class="cart__item">
+                <div class="cart__item__info">
+                    <picture class="cart__item-img">
+                        <img src="/img/star-wars/baby-yoda-1.webp"
+                            alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
+                    </picture>
+                    <div>
+                        <h3>BABY YODA BLUEBALL</h3>
+                        <p>STAR WARS</p>
+                        <p>precio unitario: $ 1799,99</p>
+                    </div>
+                </div>
+                <div class="quantity__container">
+                    <input id="quantityCart_input" class="item__input" type="text" name="quantity" placeholder="1">
+                    <div class="item__cart--btn">
+                        <button id="subtractCart" class="item__quantity" type="button">-</button>
+                        <button id="addCart" class="item__quantity" type="button">+</button>
+                    </div>
+                </div>
+                <div class="priceAndDelet__container">
+                    <span id="acuPriceItem"> 1.799.99</span>
+                    <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
+                </div>
+            </article>
+
+            <% if (item) { %>
+                <article class="cart__item">
+                    <div class="cart__item__info">
+                        <picture class="cart__item-img">
+                            <img src="/img<%=item.image_front%>"
+                                alt="<%=item.product_description%>">
+                        </picture>
+                        <div>
+                            <h3><%=item.product_name%></h3>
+                            <p><%=item.licence_name%></p>
+                            <p>precio unitario: $ <%=item.price%></p>
+                        </div>
+                    </div>
+                    <div class="quantity__container">
+                        <input id="quantityCart_input" class="item__input" type="text" name="quantity" placeholder="1">
+                        <div class="item__cart--btn">
+                            <button id="subtractCart" class="item__quantity" type="button">-</button>
+                            <button id="addCart" class="item__quantity" type="button">+</button>
+                        </div>
+                    </div>
+                    <div class="priceAndDelet__container">
+                        <span id="acuPriceItem"><%=item.price%></span>
+                        <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
+                    </div>
+                </article>
+                <% } %>
+
+        </section>
+
+        
+        <section class="cart__overview">
+            <h2 class="cart__title cart__title-overview">RESUMEN</h2>
+            <div class="cart__details__checkout">
+                <div class="cart__details__text">
+                    <p>CANTIDAD DE ELEMENTOS</p>
+                    <p>SUBTOTAL</p>
+                    <p class="text-borderBottom">ENVIO</p>
+                    <p>TOTAL</p>
+                </div>
+                <div class="cart__details__checkoutNumbers">
+                    <p id="cart__cantElemCheckout">1</p>
+                    <p id="cart__subtot"> 1.799.99</p>
+                    <p id="cart__envio" class="text-borderBottom"> 50.00</p>
+                    <p id="cart__total">1849.99</p>
+                </div>
+            </div>
+            <h3 class="cart__checkout">IR A PAGAR</h3>
+        </section>
+    </main>
+
+    <%- include('../partials/footer') %>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Analía Leyez" />
+    <meta name="description" content="Sitio Web de tienda de productos Funko online" />
+    <!-- icono -->
+    <link rel="icon" type="image/x-icon" href="/img/branding/isotype.svg" />
+    <title> <%= view.title %> </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<header class="page-header"> <!--Inicio Header-->
+    <nav class="navbar container">
+        <picture class="navbar__logo">
+            <a href="/home">
+                <img src="/img/branding/logo_light_horizontal.svg" alt="Isologotipo de la Marca Funkoshop">
+            </a>
+        </picture>
+        <ul class="navbar__menu">
+            <li class="navbar__item with-submenu">
+                <a class="navbar__link with-icon" href="/shop">
+                    SHOP
+                    <iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+                <ul class="submenu">
+                    <li class="submenu__item">
+                        <a href="/shop" class="submenu__link">Funkos</a>
+                    </li>
+                    <li class="submenu__item">
+                        <a href="/shop/remeras" class="submenu__link">Remeras</a>
+                    </li>
+                    <li class="submenu__item">
+                        <a href="/shop/llaveros" class="submenu__link">Llaveros</a>
+                    </li>
+                </ul>
+            </li>
+            <% if (locals.isLogged) { %>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/admin">ADMIN</a>
+                </li>
+                <% } %>
+            <li class="navbar__item">
+                <a class="navbar__link" href="/contact">CONTACTO</a>
+            </li>
+            <% if (locals.isLogged) { %>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="/auth/logout">LOGOUT</a>
+                </li>
+                <% } %>
+                <% if (!locals.isLogged) { %>
+                    <li class="navbar__item">
+                        <a class="navbar__link" href="/auth/login">LOGIN</a>
+                    </li>
+                    <% } %>
+            
+            <li class="navbar__item">
+                <a class="navbar__cart" href="/shop/cart">
+                    <img src="/img/icons/cart-icon.svg" alt="ícono de carrito">
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header> <!--Fin Header-->

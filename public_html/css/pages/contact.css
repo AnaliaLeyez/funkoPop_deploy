@@ -1,0 +1,32 @@
+#contact {
+    margin: var(--spacing-128) auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--spacing-36);
+}
+
+.contact__title {
+    margin: var(--spacing-18) 0;
+    font-family: var(--alternative-font);
+    font-weight: 700;
+    font-size: var(--font-jumbo);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.contact__form {
+    max-width: 990px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;;
+    gap: var(--spacing-24);
+}
+
+.contact__subtitle{
+    font-family: var(--base-font);
+    font-size: var(--font-large);
+    font-weight: 500;
+}

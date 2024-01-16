@@ -1,0 +1,75 @@
+<%- include('../partials/header'); -%>
+    <section id="create" class="container">
+        <h2>Ingresa los datos a continuación para CREAR un nuevo item:</h2>
+        <form class="create__form" action="/admin/create" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="category">Categoría:</label>
+                    <select class="form__select" name="category" id="category" required>
+                        <option value="" disabled selected hidden>Seleccionar</option>
+                        <% categories.forEach((category, i) => { %>
+                          <option value="<%= i+1%>"><%= category.category_name%></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="collection">Licencia:</label>
+                    <select class="form__select" name="collection" id="collection" required>
+                        <option value="" disabled selected hidden>Seleccionar</option>
+                        <% licences.forEach((licence, i) => { %>
+                          <option value="<%= i+1%>"><%= licence.licence_name%></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="name">Nombre del producto:</label>
+                <input class="form__input" type="text" name="name" id="name" placeholder="nombre del producto"
+                    required>
+            </div>
+            <div>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto" required></textarea>
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="sku">Código (SKU):</label>
+                <input class="form__input" type="text" name="sku" id="sku" placeholder="ABCXXXYYY" required>
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="price">Precio:</label>
+                <input class="form__input" type="text" name="price" id="price" data-type="currency"
+                    placeholder="$ 0.000,00">
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="stock">Stock:</label>
+                <input class="form__input--wrapper" type="number" min="0" name="stock" id="stock" placeholder="0 unidades"
+                    required>
+            </div>
+            <div class="form__flex">
+                <label class="form__label" for="discount">Descuento:</label>
+                <input class="form__input--wrapper" type="number" min="0" max="100" step="5" name="discount" id="discount"
+                    placeholder="0 %" required>
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="dues">Cuotas:</label>
+                <select class="form__select" name="dues" id="dues">
+                    <option value="0">0 cuotas</option>
+                    <option value="3">3 cuotas</option>
+                    <option value="6">6 cuotas</option>
+                    <option value="9">9 cuotas</option>
+                    <option value="12">12 cuotas</option>
+                    <option value="18">18 cuotas</option>
+                    <option value="24">24 cuotas</option>
+                </select>
+            </div>           
+            <div class="form__box--flex">
+                <label class="form__label" for="imagenes">Imágenes:</label>
+                <input type="file" name="imagenes" id="imagenes" multiple>
+            </div>
+            <div id="mensaje-error" style="color: red;"></div>
+            <div class="form__flex">
+                <input class="form__btn btn btn--primary btn--large" type="submit" value="Agregar Producto">
+                <input class="form__btn btn btn--primary btn--large" type="reset" value="Limpiar">
+            </div>
+        </form>
+    </section>
+    <%- include('../partials/footer'); -%>
