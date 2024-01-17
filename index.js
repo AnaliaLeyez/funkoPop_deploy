@@ -14,7 +14,7 @@ const mainRoutes = require('./src/routes/mainRoutes');
 const shopRoutes = require('./src/routes/shopRoutes');
 const adminRoutes = require('./src/routes/adminRoutes');
 const authRoutes = require('./src/routes/authRoutes');
-const { notFoundPage } = require('./src/utils/errorHandlers');
+const { notFoundPage } = require('./src/utils/ErrorHandlers');
 //TEMPLATE ENGINES - Motor EJS de vistas
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, './src/views'));
