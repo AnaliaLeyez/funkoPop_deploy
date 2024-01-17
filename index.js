@@ -17,7 +17,7 @@ const authRoutes = require('./src/routes/authRoutes');
 const { notFoundPage } = require('./src/utils/errorHandlers');
 //TEMPLATE ENGINES - Motor EJS de vistas
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './src/views'));
+app.set('views', path.resolve(__dirname, './src/views'));
 
 // Creamos la session de usuario
 app.use(initSession());
@@ -38,7 +38,7 @@ app.use(methodOverride('_method'));
 
 
 //Middlewares Rutas
-app.use(express.static('public_html')); //debe fijarse por la carpeta public si exite el nombre indicado en la ruta. Ej, ver si existe /productos.html
+app.use(express.static(path.resolve(__dirname,'./public_html'))); //debe fijarse por la carpeta public si exite el nombre indicado en la ruta. Ej, ver si existe /productos.html
 app.use('/', mainRoutes);
 app.use('/shop', shopRoutes);
 app.use('/admin', adminRoutes);
