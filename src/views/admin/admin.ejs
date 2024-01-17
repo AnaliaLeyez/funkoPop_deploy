@@ -1,12 +1,15 @@
 <%- include('../partials/header'); -%>
 <main id="admin" class="container">
     <section class="admin__list">
-        <h2 class="login__title">Por motivos de seguridad, esta versión no permite modificaciones en la base de datos</h2>
+        <% if(message) {%>
+        <h2 class="login__title"> <%= message %></h2>
+        <% } %>
+        <!-- <h2 class="login__title">Por motivos de seguridad, esta versión no permite modificaciones en la base de datos</h2> -->
         <h2 class="admin__hello">¡Hola <%= userName %> <%= userLastname %>! </h2>
         
     <div class="admin__header">
         <h2>LISTADO DE PRODUCTOS</h2>
-        <span>AGREGAR<a href="/admin/"><iconify-icon icon="bxs:plus-square"
+        <span>AGREGAR<a href="/admin/create"><iconify-icon icon="bxs:plus-square"
                     style="color: #f33;"></iconify-icon></a></span>
     </div>
     <div class="admin__search">
@@ -33,10 +36,10 @@
                 <p class="table__item--id"><%= item.sku %></p>
                 <p class="table__item--name"><%= item.product_name %></p>
                 <p class="table__item--name"><%= item.licence_name %></p>
-                <a href="/admin/" class="table__item--edit">
+                <a href="/admin/edit/<%= item.product_id %>" class="table__item--edit">
                     <img class="cart__item-edit" src="/img/icons/edit_pencil.svg">
                 </a>
-                <a href="/admin/" class="table__item--delete">
+                <a href="/admin?message=NoModify" class="table__item--delete">
                     <img class="cart__item-delete" src="/img/icons/delete_trash.svg">
                 </a>
                 <!-- SI QUISIERA USAR METODO DELETE:

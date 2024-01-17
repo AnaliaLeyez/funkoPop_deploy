@@ -19,7 +19,8 @@ const adminControllers= {
         },
         userName: req.session.nombre,
         userLastname: req.session.lastname,
-        q: req.query.q
+        q: req.query.q,
+        message: req.query.message === 'NoModify' ? 'Por seguridad, no se permiten cambios en la BD' : '',
     })},
     
     createGET: async(req, res)=> {
@@ -35,8 +36,8 @@ const adminControllers= {
     },
     
     createPOST: async(req, res)=>{
-        await createOneItem(req.body, req.files);
-        res.redirect('/admin');
+        // await createOneItem(req.body, req.files);
+        res.redirect('/admin?message=NoModify');
     },
 
     editGET: async (req, res) => {
@@ -56,13 +57,13 @@ const adminControllers= {
 
 
     editPUT: async (req, res) => {
-        await editOneItem(req.body, req.files, req.params.id);
-        res.redirect('/admin');
+        // await editOneItem(req.body, req.files, req.params.id);
+        res.redirect('/admin?message=NoModify');
       },
     
     delete: async(req, res)=>{
-        await deleteOneItem(req.params.id);
-        res.redirect('/admin');
+        // await deleteOneItem(req.params.id);
+        res.redirect('/admin?NoModify');
     },
 
 }

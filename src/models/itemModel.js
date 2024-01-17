@@ -55,50 +55,50 @@ const getOne = async(params) =>{
 };
 
 const createOne = async(params) =>{
-    // try{
-    //     const [rows] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, licence_id, category_id) VALUES ?', [params]);
-    //     return rows;
+    try{
+        const [rows] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, licence_id, category_id) VALUES ?', [params]);
+        return rows;
 
-    // }catch(e){
-    //     const error ={
-    //         isError: true,
-    //         Message: `No se pudo agregar el nuevo registro debido a: ${e}`
-    //     }
-    //     return error;
-    // }finally {
-    //     await conn.releaseConnection();
-    //   }
+    }catch(e){
+        const error ={
+            isError: true,
+            Message: `No se pudo agregar el nuevo registro debido a: ${e}`
+        }
+        return error;
+    }finally {
+        await conn.releaseConnection();
+      }
 };
 
 const deleteOne = async(params) =>{
-    // try{
-    //     const [rows] = await conn.query('DELETE FROM product WHERE ?;', params); //otra opcion: params.id
-    //     return rows;
+    try{
+        const [rows] = await conn.query('DELETE FROM product WHERE ?;', params); //otra opcion: params.id
+        return rows;
 
-    // }catch(e){
-    //     const error ={
-    //         isError: true,
-    //         Message: `No se pudo borrar el registro con id ${params} debido a: ${e}`
-    //     }
-    //     return error;
-    // }finally {
-    //     await conn.releaseConnection();
-    //   }
+    }catch(e){
+        const error ={
+            isError: true,
+            Message: `No se pudo borrar el registro con id ${params} debido a: ${e}`
+        }
+        return error;
+    }finally {
+        await conn.releaseConnection();
+      }
 };
 
 const editOne = async (params, id) => {
-    // try {
-    //   const [rows] = await conn.query('UPDATE product SET ? WHERE ?;', [params, id]);
-    //   return rows;
-    // } catch (e) {
-    //   const error = {
-    //     isError: true,
-    //     message: `No pudimos modificar el item seleccionado, error: ${e}`
-    //   };
-    //   return error;
-    // } finally {
-    //   await conn.releaseConnection();
-    // }
+    try {
+      const [rows] = await conn.query('UPDATE product SET ? WHERE ?;', [params, id]);
+      return rows;
+    } catch (e) {
+      const error = {
+        isError: true,
+        message: `No pudimos modificar el item seleccionado, error: ${e}`
+      };
+      return error;
+    } finally {
+      await conn.releaseConnection();
+    }
   };
   
  const findMatch= async(params)=>{
