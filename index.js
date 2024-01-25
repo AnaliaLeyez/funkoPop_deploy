@@ -19,6 +19,12 @@ const { notFoundPage } = require('./src/utils/ErrorHandlers');
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, './src/views'));
 
+// Deshabilitar la memoria caché
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  next();
+});
+
 // Creamos la session de usuario
 app.use(initSession());
 
